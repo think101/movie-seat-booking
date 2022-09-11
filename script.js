@@ -7,9 +7,8 @@ const movieSelect = document.getElementById('movie');
 populateUI();
 
 // save selected movie index and price
-function setMovieData(movieIndex, moviePrice) {
+function setMovieData(movieIndex) {
     localStorage.setItem('selectedMovieIndex', movieIndex);
-    localStorage.setItem('selectedMoviePrice', moviePrice);
 }
 
 function updateSelectedCount() {
@@ -51,9 +50,8 @@ function populateUI() {
 }
 
 // movie select event
-movieSelect.addEventListener('change', e => {
-    ticketPrice = +e.target.value;
-    setMovieData(e.target.selectedIndex, e.target.value);
+movieSelect.addEventListener('change', e => {    
+    setMovieData(e.target.selectedIndex);
     updateSelectedCount();
 });
 
